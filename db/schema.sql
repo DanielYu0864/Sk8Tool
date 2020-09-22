@@ -1,6 +1,4 @@
-DROP DATABASE IF EXISTS skate_spots_db;
-CREATE DATABASE skate_spots_db;
-USE skate_spots_db;
+USE xgc73r2v6zfyhu1d;
 
 CREATE TABLE spots(
 	id int NOT NULL AUTO_INCREMENT,
@@ -8,8 +6,8 @@ CREATE TABLE spots(
     first_cross_street VARCHAR(50) NOT NULL,
     second_cross_street VARCHAR(50) NOT NULL,
 	lattitude DECIMAL,
-	longitude DECIMAL, 
-    description VARCHAR(225), 
+	longitude DECIMAL,
+    description VARCHAR(225),
 	security_guards BOOLEAN DEFAULT false,
 	PRIMARY KEY (id)
 );
