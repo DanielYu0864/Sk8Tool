@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-db.sequelize.sync({ forec: true }).then(() => {
+db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`app listening on -> localhost:${PORT}`);
   });
