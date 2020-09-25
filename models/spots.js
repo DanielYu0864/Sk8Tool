@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    const Spots = sequelize.define('spots', {
+    const Spot = sequelize.define('spots', {
         city: {
             type: DataTypes.STRING
         },
@@ -22,5 +22,5 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN
         }
     });
-    return Spots;
+    return Spot;
 }
