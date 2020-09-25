@@ -1,3 +1,4 @@
+// Dependencies
 const express = require('express');
 
 const PORT = process.env.PORT || 8080;
@@ -6,10 +7,11 @@ const app = express();
 
 const db = require('./models');
 
-
+// Handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// Static directory
 app.use(express.static('public'));
 
 const exphbs = require('express-handlebars');
@@ -17,13 +19,13 @@ const exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+// Routes
+// ======================================================================
 require('./routes/api-routes')(app);
+require('./routes/hbs-routes')(app);
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync(/*{ force: true }*/).then(() => {
   app.listen(PORT, () => {
     console.log(`app listening on -> localhost:${PORT}`);
   });
