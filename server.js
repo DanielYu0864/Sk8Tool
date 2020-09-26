@@ -21,8 +21,8 @@ app.set('view engine', 'handlebars');
 
 // Routes
 // ======================================================================
-require('./routes/api-routes')(app);
-require('./routes/hbs-routes')(app);
+require('./controllers/api-routes')(app);
+require('./controllers/hbs-routes')(app);
 
 
 db.sequelize.sync(/*{ force: true }*/).then(() => {
