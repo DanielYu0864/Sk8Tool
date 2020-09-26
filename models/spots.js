@@ -3,17 +3,14 @@ module.exports = function(sequelize, DataTypes) {
         city: {
             type: DataTypes.STRING
         },
-        first_cross_street :{
-            type: DataTypes.STRING
-        },
-        second_cross_street: {
-            type: DataTypes.STRING
-        },
         latitude: {
             type: DataTypes.DECIMAL
         },
         longitude: {
             type: DataTypes.DECIMAL
+        },
+        cross_street: {
+            type: DataTypes.STRING
         },
         description: {
             type: DataTypes.STRING

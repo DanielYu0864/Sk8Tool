@@ -15,10 +15,9 @@ module.exports = function(app) {
         // .create to add new data to mySQL database
         db.spots.create({
             city: req.body.city,
-            first_cross_street : req.body.first_cross_street,
-            second_cross_street: req.body.second_cross_street,
             latitude: req.body.latitude,
             longitude: req.body.longitude,
+            cross_street: req.body.cross_street,
             description: req.body.description,
             security_guards: req.body.security_guards
         }).then(spot => res.json(spot));
@@ -28,10 +27,9 @@ module.exports = function(app) {
         // .update to update the data from mySQL database
         db.spots.update({
             city: req.body.city,
-            first_cross_street : req.body.first_cross_street,
-            second_cross_street: req.body.second_cross_street,
             latitude: req.body.latitude,
             longitude: req.body.longitude,
+            cross_street: req.body.cross_street,
             description: req.body.description,
             security_guards: req.body.security_guards
         }, {
