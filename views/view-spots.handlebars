@@ -1,3 +1,16 @@
-<div>
 
+<div class="class">
+    <ul class='spots'>
+        {{#spots_list}}
+        <li>
+        {{#if location }}
+            <h1>Spot:{{ name }}</h1>
+            <p>Spot description: {{ description }}</p>
+            {{#if cross_street}}
+            <p>{{ cross_street }}</p>
+            {{/if}}
+            <p>Security Guards:{{ security_guards }}</p>
+        {{/if}}
+        </li>
+    </ul>
 </div>
