@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
     const Spot = sequelize.define('spots', {
         city: {
             type: DataTypes.STRING
@@ -20,4 +20,4 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     return Spot;
-}
+};

@@ -1,12 +1,8 @@
-const { json } = require('sequelize')
 const db = require('../models');
 
-
-
-module.exports = function(app) {
-
+module.exports = (app) => {
     // GET route for all of the spots data
-    app.get('/api/spots',(req, res) => {
+    app.get('/api/spots', (req, res) => {
         // .findAll to get all the data from mySQL database
         db.spots.findAll({}).then(spots => res.json(spots));
     });
