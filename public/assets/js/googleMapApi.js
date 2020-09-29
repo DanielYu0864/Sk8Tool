@@ -2,14 +2,12 @@ const googleMapApiKey = "AIzaSyDmZhf4Cy3XVS_6hruDDGNfWfd0Uaxfxp4"; // D
 
 const city = document.querySelector('.city-input');
 $(function() {
-    let switchbtn = true;
-
     $('.search').on('click', () => {
         let searchCity = city.value.trim();
+
         $('.main-content').html('<iframe class ="parkmap" frameborder="0" style="border:0v"></iframe>');
         const mapI = document.querySelector(".parkmap");
         mapI.setAttribute("style", "width:100%; height:40vw");
-        // mapI.setAttribute("src", `https://www.google.com/maps/embed/v1/search?q=record+skatepark+in+${searchCity}&key=${googleMapApiKey}`);
 
         if(switchbtn === true) {
             mapI.setAttribute("src", `https://www.google.com/maps/embed/v1/search?q=record+skatepark+in+${searchCity}&key=${googleMapApiKey}`);
@@ -18,14 +16,16 @@ $(function() {
         }
 
         $('.parks-btn').on('click',() =>{
-            switchbtn = true;
             mapI.setAttribute("src", `https://www.google.com/maps/embed/v1/search?q=record+skatepark+in+${searchCity}&key=${googleMapApiKey}`);
         });
 
         $('.shops-btn').on('click',() =>{
-            switchbtn = true;
             mapI.setAttribute("src", `https://www.google.com/maps/embed/v1/search?q=record+skatesboradshop+in+${searchCity}&key=${googleMapApiKey}`);
         });
+
+        $('.weather-btn').on('click', () =>{
+
+        })
     });
 
 
