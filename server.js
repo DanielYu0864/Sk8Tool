@@ -7,7 +7,7 @@ const db = require('./models');
 
 // Loop through root and get .env
 const dotenv = require('dotenv').config();
-
+console.log(process.env.WEATHER_API_KEY);
 
 // Handle data parsing
 app.use(express.urlencoded({ extended: true }));
