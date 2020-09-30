@@ -16,6 +16,7 @@ $(function(){
     //* }
     let latitude;
     let longitude;
+    // function success to get the latitude and longitude
     function success(pos) {
         var crd = pos.coords;
 
@@ -32,6 +33,7 @@ $(function(){
         console.log(`Longitude: ${longitude}`);
         return latitude, longitude;
     }
+    // when the get current location button 'click' will get the user location
     $('#use-current-location').on('click', (event) => {
         event.preventDefault();
 
@@ -42,6 +44,7 @@ $(function(){
             console.log("Geolocation is not supported by this browser.");
           }
     });
+    // when the submit button 'click' will pust the data to the database
     $('.create-form').on('submit', function(event){
         event.preventDefault();
 
@@ -49,7 +52,7 @@ $(function(){
             name: $('#spot-name').val().trim(),
             description: $('#spot-description').val().trim(),
             city: $('#spot-city').val().trim(),
-            crossStreets: $('#cross-streets').val().trim(),
+            cross_street: $('#cross-streets').val().trim(),
             latitude: latitude,
             longitude: longitude
         };
@@ -59,7 +62,7 @@ $(function(){
             data: newSpot
         }).then(function(){
             console.log('Adding new spot');
-            location.reload();
+            // location.reload();
         });
     });
     //this doesn't exist yet but I am coding it incase we want to add it
