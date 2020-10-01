@@ -8,26 +8,25 @@
 
 <div class="">
     <input class="city-input" type="text">
-    <button class="search">Search</button>
-    <button class="parks-btn">Park</a></button>
-    <button class="shops-btn"><a href="/shops">Shop</a></button>
-    <button><a href='/view-spots'>View-Spots</a></button>
+    <button class="parks-btn"><a href="/"></a>Park</a></button>
+    <button class="shops-btn"><a href="/">Shop</a></button>
     <button><a href='/add-spot'>Add-Spot</a></button>
-    <button><a href="/weather">Weather</a></button>
+    <button><a href="/">Weather</a></button>
 </div>
 
 <div class="class">
     <ul class='spots'>
-        {{#spots_list}}
-        <li>
-        {{#if location }}
-            <h1>Spot:{{ name }}</h1>
-            <p>Spot description: {{ description }}</p>
+
+        {{#each spots}}
+            <li>Spot:{{ name }}</li>
+            <li>Spot description: {{ description }}</li>
             {{#if cross_street}}
-            <p>{{ cross_street }}</p>
+            <li>{{ cross_street }}</li>
             {{/if}}
-            <p>Security Guards:{{ security_guards }}</p>
-        {{/if}}
+            {{#if security_guards}}
+            <li>Security Guards:{{ security_guards }}</li>
+            {{/if}}
         </li>
+        {{/each}}
     </ul>
 </div>

@@ -1,3 +1,4 @@
+const db = require('../models');
 module.exports = function(app) {
     app.get('/', (req, res) => {
         res.render('index');
@@ -6,7 +7,15 @@ module.exports = function(app) {
     });
 
     app.get('/view-spots', (req,res) => {
-        res.render('view-spots');
+
+            // .findAll to get all the data from mySQL database
+            db.spots.findAll({}).then(spots => {
+                console.log(spots);
+                console.log(res.json(spots[0]));
+
+                res.render('view-spots', spots);
+            });
+
     });
 
     app.get('/add-spot', (req, res) => {
