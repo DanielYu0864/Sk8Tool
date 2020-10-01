@@ -9,11 +9,13 @@ module.exports = function(app) {
     app.get('/view-spots', (req,res) => {
 
             // .findAll to get all the data from mySQL database
-            db.spots.findAll({}).then(spots => {
-                console.log(spots);
-                console.log(res.json(spots[0]));
-
-                res.render('view-spots', spots);
+            db.spots.findAll({}).then(data => {
+                const spots = [];
+                for(let i = 0; i < data.length; i++) {
+                    spots.push(data[i].dataValues);
+                }
+                console.log(data);
+                res.render('view-spots', {spots});
             });
 
     });
