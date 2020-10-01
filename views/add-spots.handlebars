@@ -19,12 +19,18 @@
             <p>Describe Your Spot:</p>
             <input class='spot-description' id ='spot-description' placeholder='What is at your spot? Example: 3 stairs with hand rail, public plaza with manual pads and ledges'>
             <p>Where Is Your Spot?</p>
-            <button type="button" class='use-current-location' id='use-current-location'>Use your current location</button>
-            <div id="current-spot"></div>
             <p>What city is your spot in?</p>
             <input class='spot-city' id='spot-city' placeholder='Ex: Seattle'>
+            <button type="button" class='use-current-location' id='use-current-location'>Use your current location</button>
+            <div id="current-spot"></div>
             <p>OR add the closest cross streets:</p>
             <input class='cross-streets' id='cross-streets' placeholder='Example: 9th and pine'>
+            <div class='security'>
+                <label for="security-switch">Is there security at the spot?</label><br>
+                <input type="radio" name="security" value="1" checked> No<br>
+                <input type="radio" name="security" value="0"> Yes
+                <input class='security-when' id='security-when' placeholder='Yes if yes when?'>
+            </div>
             <button type='submit' class='submit-spot' id='submit-spot'>Sumbit Your Spot</button>
 
         </form>
