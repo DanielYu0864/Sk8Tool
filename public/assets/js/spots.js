@@ -54,7 +54,10 @@ $(function(){
             city: $('#spot-city').val().trim(),
             cross_street: $('#cross-streets').val().trim(),
             latitude: latitude,
-            longitude: longitude
+            longitude: longitude,
+            // security: $('security'),
+            security_when: $('#security-when').val().trim()
+
         };
         console.log(newSpot);
         $.ajax('api/spots',{

@@ -18,7 +18,11 @@ module.exports = (sequelize, DataTypes) => {
         },
         security_guards: {
             type: DataTypes.BOOLEAN
-        }
+        },
+        security_when: {
+            type: DataTypes.STRING
+        }    
+        
     });
     return Spot;
 };
