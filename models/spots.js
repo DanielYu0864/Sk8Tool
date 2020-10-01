@@ -4,10 +4,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         latitude: {
-            type: DataTypes.DECIMAL
+            // data will inculide up to 18 number, 3 int, 15 dec
+            type: DataTypes.DECIMAL(18, 15)
         },
         longitude: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.DECIMAL(18, 15)
         },
         cross_street: {
             type: DataTypes.STRING
