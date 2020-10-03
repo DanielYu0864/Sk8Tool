@@ -1,7 +1,7 @@
 <ul class='spots'>
 
         {{#each spots}}
-            <button>{{ id }}</button>
+            <button class='spot-buttons' data-id={{ id }}>{{ id }}</button>
             <li class="spot">Spot: {{ name }}</li>
             <li>Spot Description: {{ description }}</li>
             {{#if cross_street}}
@@ -15,4 +15,5 @@
 
     </ul>
 
-    <h1></h1>
+
+<script src="/assets/js/api.js"></script>
