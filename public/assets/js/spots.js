@@ -44,7 +44,18 @@ $(function(){
             console.log("Geolocation is not supported by this browser.");
           }
     });
-    // when the submit button 'click' will pust the data to the database
+    //display yes security box if yes 
+    $(".security-yes-no").on('click', function(event){
+        
+        var yesSecurity = $(this).data('security');
+        
+        if (yesSecurity.checked == true){
+            securityWhen.style.display = 'block'; 
+        } else {
+            securityWhen.style.display = 'none';
+        };
+    });
+    // when the submit button 'click' will push the data to the database
     $('.create-form').on('submit', function(event){
         event.preventDefault();
 
@@ -55,8 +66,8 @@ $(function(){
             cross_street: $('#cross-streets').val().trim(),
             latitude: latitude,
             longitude: longitude,
-            // security: $('security'),
-            security_when: $('#security-when').val().trim()
+            security: $('[name=security]:checked').val().trim(),
+            security_when: $('#securityWhen').val().trim()
 
         };
         console.log(newSpot);

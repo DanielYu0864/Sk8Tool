@@ -8,7 +8,7 @@ CREATE TABLE spots(
     cross_street VARCHAR(50),
     description VARCHAR(225),
 	security_guards BOOLEAN DEFAULT false,
-	when_security VARCHAR(50),
+	security_when VARCHAR(50),
 	PRIMARY KEY (id)
 );
 

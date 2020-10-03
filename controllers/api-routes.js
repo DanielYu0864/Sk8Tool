@@ -15,7 +15,8 @@ module.exports = (app) => {
             longitude: req.body.longitude,
             cross_street: req.body.cross_street,
             description: req.body.description,
-            security_guards: req.body.security_guards
+            security_guards: req.body.security_guards,
+            security_when: req.body.security_when
         }).then(spot => res.json(spot));
     });
     // PUT route for update spots info
@@ -27,7 +28,8 @@ module.exports = (app) => {
             longitude: req.body.longitude,
             cross_street: req.body.cross_street,
             description: req.body.description,
-            security_guards: req.body.security_guards
+            security_guards: req.body.security_guards,
+            security_when: req.body.security_when
         }, {
             // conditions
             where: {
