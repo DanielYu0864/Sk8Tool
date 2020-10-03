@@ -10,18 +10,21 @@ module.exports = (app) => {
     app.post('/api/spots', (req, res) => {
         // .create to add new data to mySQL database
         db.spots.create({
+            name: req.body.name,
             city: req.body.city,
             latitude: req.body.latitude,
             longitude: req.body.longitude,
             cross_street: req.body.cross_street,
             description: req.body.description,
-            security_guards: req.body.security_guards
+            security_guards: req.body.security_guards,
+            security_when: req.body.security_when
         }).then(spot => res.json(spot));
     });
     // PUT route for update spots info
     app.put('/api/spots', (req, res) => {
         // .update to update the data from mySQL database
         db.spots.update({
+            name: req.body.name,
             city: req.body.city,
             latitude: req.body.latitude,
             longitude: req.body.longitude,

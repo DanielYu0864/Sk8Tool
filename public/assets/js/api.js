@@ -5,7 +5,9 @@ let searchCity;
 $(function() {
     $('.view-spots').on('click',() => {
       searchCity = city.value.trim();
-      $('.main-content').html('<div class="map parkmap" style="width:60%; height:40vw"></div>');
+      const list = $('#spots-template').html();
+      $('.main-content').html('<div class="spots-list"></div>'+'<div class="map parkmap" style="width:60%; height:40vw"></div>');
+      $('.spots-list').html(list);
       let latitude;
       let longitude;
       $.ajax({

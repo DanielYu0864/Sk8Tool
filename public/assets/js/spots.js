@@ -48,14 +48,13 @@ $(function(){
     $('.create-form').on('submit', function(event){
         event.preventDefault();
 
-        var newSpot ={
+        var newSpot = {
             name: $('#spot-name').val().trim(),
-            description: $('#spot-description').val().trim(),
             city: $('#spot-city').val().trim(),
-            cross_street: $('#cross-streets').val().trim(),
             latitude: latitude,
             longitude: longitude,
-            // security: $('security'),
+            cross_street: $('#cross-streets').val().trim(),
+            description: $('#spot-description').val().trim(),
             security_when: $('#security-when').val().trim()
 
         };
@@ -65,7 +64,7 @@ $(function(){
             data: newSpot
         }).then(function(){
             console.log('Adding new spot');
-            // location.reload();
+            location.reload();
         });
     });
 
