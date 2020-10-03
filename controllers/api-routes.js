@@ -30,7 +30,8 @@ module.exports = (app) => {
             longitude: req.body.longitude,
             cross_street: req.body.cross_street,
             description: req.body.description,
-            security_guards: req.body.security_guards
+            security_guards: req.body.security_guards,
+            security_when: req.body.security_when
         }, {
             // conditions
             where: {
