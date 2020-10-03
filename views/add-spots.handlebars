@@ -1,29 +1,33 @@
-<h1>Project 2</h1>
+<h1>Sk8Tool</h1>
 
 <div class="title">
     <h2>title</h2>
     <div>current time</div>
     <div>weather</div>
+    <div class="">
+    <button class='home-btn'><a href="/">Home</a></button>
+</div>
 </div>
 
-<div class="">
-    <button><a href="/">Home</a></button>
-</div>
+{{!-- <div class="">
+    <button class='home-btn'><a href="/">Home</a></button>
+</div> --}}
 
 <div class='add-spot' id='add-spot'>
-    <container>
+    {{!-- <container id='add-spot-container'> --}}
         <h2>Add a Spot</h2>
         <form class="create-form">
-            <p>Name Your Spot:</p>
+            <label>Name Your Spot:</label>
             <input class='spot-name' id='spot-name' placeholder='enter your spot name here'>
-            <p>Describe Your Spot:</p>
-            <input class='spot-description' id ='spot-description' placeholder='What is at your spot? Example: 3 stairs with hand rail, public plaza with manual pads and ledges'>
-            <p>Where Is Your Spot?</p>
-            <p>What city is your spot in?</p>
-            <input class='spot-city' id='spot-city' placeholder='Ex: Seattle'>
+            <label for='spot-description'>Describe Your Spot:</label>
+            <textarea class='spot-description' id ='spot-description' placeholder='What is at your spot? Example: 3 stairs with hand rail, public plaza with manual pads and ledges'></textarea>
+            <h3>Where Is Your Spot?</h3>
+            <label for='spot-city'>What city is your spot in?</label>
+            <input type='text' class='spot-city' id='spot-city' placeholder='Ex: Seattle'>
             <button type="button" class='use-current-location' id='use-current-location'>Use your current location</button>
             <div id="current-spot"></div>
-            <p>OR add the closest cross streets:</p>
+            <br>
+            <label for='cross-streets'>OR add the closest cross streets:</label>
             <input class='cross-streets' id='cross-streets' placeholder='Example: 9th and pine'>
             <div class='security'>
                 <label for="security-switch">Is there security at the spot?</label><br>
@@ -33,7 +37,7 @@
             <button type='submit' class='submit-spot' id='submit-spot'>Sumbit Your Spot</button>
 
         </form>
-    </container>
+    {{!-- </container> --}}
 </div>
 
 
