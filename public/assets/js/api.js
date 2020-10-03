@@ -6,8 +6,6 @@ $(function() {
     $('.view-spots').on('click',() => {
       searchCity = city.value.trim();
       const list = $('#spots-template').html();
-      $('.main-content').html('<div class="spots-list"></div>'+'<div class="map parkmap" style="width:60%; height:40vw"></div>');
-      $('.spots-list').html(list);
       let latitude;
       let longitude;
       $.ajax({
@@ -16,7 +14,9 @@ $(function() {
         }).then(function(response){
         latitude = response.coord.lat;
         longitude = response.coord.lon;
+        $('.main-content').html('<div class="spots-list"></div>'+'<div class="map parkmap" style="width:60%; height:40vw"></div>');
         markerApi(latitude, longitude);
+        $('.spots-list').html(list);
         });
 
     });
@@ -54,6 +54,7 @@ $(function() {
     });
 
 });
+
 
 function markerApi(latitude, longitude) {
   const locations = {}, locationsArray = [];
@@ -98,6 +99,22 @@ function markerApi(latitude, longitude) {
       }
   );
 }
+
+$('.spot-buttons').on('click', function(event) {
+    event.preventDefault();
+    let id = $(this).data('id')
+
+    $.ajax('/api/spots/' + id, {
+        type: 'GET'
+    }).then((data) => {
+
+        latitude = data.latitude;
+        longitude = data.longitude;
+        console.log(latitude, longitude);
+        markerApi(latitude, longitude);
+    });
+
+});
 
 function getCityWeather(city) {
     $.ajax({

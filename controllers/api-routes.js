@@ -1,4 +1,5 @@
 const db = require('../models');
+const spots = require('../models/spots');
 
 module.exports = (app) => {
     // GET route for all of the spots data
@@ -6,6 +7,15 @@ module.exports = (app) => {
         // .findAll to get all the data from mySQL database
         db.spots.findAll({}).then(spots => res.json(spots));
     });
+
+    app.get('/api/spots/:id', (req, res) => {
+        db.spots.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(spot => res.json(spot));
+    })
+
     // POST route for add new spots info
     app.post('/api/spots', (req, res) => {
         // .create to add new data to mySQL database
@@ -39,4 +49,5 @@ module.exports = (app) => {
             }
         }).then(spot => res.json(spot));
     });
+
 };

@@ -27,7 +27,8 @@ require('./controllers/api-routes')(app);
 require('./controllers/hbs-routes')(app);
 
 
-db.sequelize.sync({ force: false }).then(() => {
+
+db.sequelize.sync(/*{ force: true }*/).then(() => {
   app.listen(PORT, () => {
     console.log(`app listening on -> localhost:${PORT}`);
   });
