@@ -3,13 +3,13 @@
         {{#each spots}}
             <button>{{ id }}</button>
             <li class="spot">Spot: {{ name }}</li>
-            <li>Spot description: {{ description }}</li>
+            <li>Spot Description: {{ description }}</li>
             {{#if cross_street}}
-            <li>cross_street: {{ cross_street }}</li>
+            <li>Cross Street: {{ cross_street }}</li>
             {{/if}}
-            {{#if security_guards}}
-            <li>Security Guards:{{ security_when }}</li>
-            {{/if}}
+            <li>Security Guards:{{ security_guards }}</li>
+            <li>When is going to have Security:{{ security_when }}</li>
+
         </li>
         {{/each}}
 
