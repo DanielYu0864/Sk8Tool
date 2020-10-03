@@ -68,6 +68,7 @@ $(function(){
             // location.reload();
         });
     });
+
     //this doesn't exist yet but I am coding it incase we want to add it
     // $('.delete-spot').on('click', function(event){
     //     var id = $(this).data('id');

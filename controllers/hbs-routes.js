@@ -7,17 +7,17 @@ module.exports = function(app) {
     });
 
     app.get('/view-spots', (req,res) => {
-
             // .findAll to get all the data from mySQL database
             db.spots.findAll({}).then(data => {
+                // spots empty arr to contant data
                 const spots = [];
+                // loop through data and push to the spots arr
                 for(let i = 0; i < data.length; i++) {
                     spots.push(data[i].dataValues);
                 }
-                console.log(data);
+                // render spots obj to view-spots.handlebars
                 res.render('view-spots', {spots});
             });
-
     });
 
     app.get('/add-spot', (req, res) => {
