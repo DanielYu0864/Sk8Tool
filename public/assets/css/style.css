@@ -11,14 +11,69 @@
 html,
 body{
     background-image: url("../background.jpg");
-    background-position:100vw;
+    /* background-position:100vw;
     height: 100%;
     margin: 0;
     margin-left: 35px;
-    margin-right: 35px;
-
+    margin-right: 35px; */
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+.title{
+    background-color: rgba(4, 110, 96, 0.301);
+    font-family: 'Permanent Marker', cursive;
+    font-weight: lighter;
+    text-shadow: 1px 1px 1px hotpink;
+    height: auto;
+    max-width:95%;
+    border-style: solid;
+    border-color: hotpink;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
+    padding: 10px;
+}
+.add-spot{
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    background-color: rgba(4, 110, 96, 0.301);
+    font-family: 'Permanent Marker', cursive;
+    font-weight: lighter;
+    text-shadow: 1px 1px 1px hotpink;
+    height: auto;
+    max-width:95%;
+    border-style: solid;
+    border-color: hotpink;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
+    padding: 10px;
+}
+/* .spot-description{
+    width: 160px;
+    height: 70px;
+    border-radius: 5px;
+    padding: 10px;
+    position: relative;;
+	top:75px;
+} */
 
+#home-btn{
+    background-color: rgba(33, 207, 85, 0.671);
+    color: black;
+    font-weight: 400;
+    text-align: center;
+    border-radius:12px;
+    width: 140px;
+    max-width: 50%;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(0, 0, 0, 0.527);
+    padding: 10px;
+    float: right;
+    margin: 75px;
+}
 
 .display-none {
     display: none;
@@ -49,6 +104,7 @@ h1{
     padding: 10px;
 }
 
+
 #app-explain{
     background-color: rgba(4, 110, 96, 0.301);
     font-family: 'Permanent Marker', cursive;
@@ -75,14 +131,14 @@ h1{
     padding: 10px;
 
 }
-input{
+/* input{
     width: 160px;
     border-radius: 5px;
     padding: 10px;
     position: relative;;
 	top:75px;
 
-}
+} */
 
 
 .index button{
