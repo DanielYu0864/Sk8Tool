@@ -1,5 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
     const Spot = sequelize.define('spots', {
+        name: {
+            type: DataTypes.STRING
+        },
         city: {
             type: DataTypes.STRING
         },
@@ -21,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         security_when: {
             type: DataTypes.STRING
-        }    
-        
+        }
+
     });
     return Spot;
 };
