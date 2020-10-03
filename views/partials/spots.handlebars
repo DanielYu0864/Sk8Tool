@@ -1,0 +1,16 @@
+<ul class='spots'>
+
+        {{#each spots}}
+            <button>{{ id }}</button>
+            <li class="spot">Spot: {{ name }}</li>
+            <li>Spot description: {{ description }}</li>
+            {{#if cross_street}}
+            <li>cross_street: {{ cross_street }}</li>
+            {{/if}}
+            {{#if security_guards}}
+            <li>Security Guards:{{ security_when }}</li>
+            {{/if}}
+        </li>
+        {{/each}}
+
+    </ul>

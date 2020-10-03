@@ -3,14 +3,23 @@ const openWeatherApiKey = "e93223a6b1823d41860077c8e54b5206"; // D
 const city = document.querySelector('.city-input');
 let searchCity;
 $(function() {
-    // $('.search').on('click', () => {
-    //     searchCity = city.value.trim();
+    $('.view-spots').on('click',() => {
+      searchCity = city.value.trim();
+      const list = $('#spots-template').html();
+      $('.main-content').html('<div class="spots-list"></div>'+'<div class="map parkmap" style="width:60%; height:40vw"></div>');
+      $('.spots-list').html(list);
+      let latitude;
+      let longitude;
+      $.ajax({
+        method: "GET",
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&appid=" + openWeatherApiKey
+        }).then(function(response){
+        latitude = response.coord.lat;
+        longitude = response.coord.lon;
+        markerApi(latitude, longitude);
+        });
 
-    //     $('.main-content').html('<iframe class ="parkmap" frameborder="0" style="border:0v"></iframe>');
-    //     const mapI = document.querySelector(".parkmap");
-    //     mapI.setAttribute("style", "width:100%; height:40vw");
-    // });
-
+    });
     $('.parks-btn').on('click',() =>{
         searchCity = city.value.trim();
         $('.main-content').html('<iframe class ="parkmap" frameborder="0" style="border:0v"></iframe>');
@@ -46,48 +55,49 @@ $(function() {
 
 });
 
-function displayWeatherForecast(latitude,longitude){
-    $.ajax({
-      method: "GET",
-      url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=" + openWeatherApiKey
-    }).then(function(response){
-      const forecastRow = $("#forecast-row");
-      forecastRow.empty();
+function markerApi(latitude, longitude) {
+  const locations = {}, locationsArray = [];
+  $.ajax('api/spots', {
+      mathod: 'GET',
+  }).then(
+      function(data) {
+          let map = new google.maps.Map(document.querySelector('.map'), {
+              zoom: 10,
+              center: new google.maps.LatLng(latitude , longitude),
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
 
-      for(var i = 1; i < 6; i++){
-        const fDate = new Date(response.daily[i].dt * 1000)
-        const fTemp = (((response.daily[i].temp.max - 273.15) * (9/5) + 32).toFixed(0));
-        const fLowTemp = (((response.daily[i].temp.min - 273.15) * (9/5) + 32).toFixed(0));
-        const fHumidity = response.daily[i].humidity;
-        const fIcon = response.daily[i].weather[0].icon;
+          let infowindow = new google.maps.InfoWindow();
+          // console.log(data);
+          // loop through spots and push locations info to locationsArray
+          data.forEach(element => {
+              if(element.latitude && element.longitude) {
+                  locations.id = element.id;
+                  locations.city = element.city;
+                  locations.latitude = element.latitude
+                  locations.longitude = element.longitude;
+                  locationsArray.push(locations);
+              }
+              return locationsArray;
+          });
+          console.log(locationsArray);
 
-        const data = document.createElement("td");
-
-        const dateHeader = document.createElement("h3");
-        dateHeader.innerHTML = fDate.toLocaleDateString()
-        data.append(dateHeader)
-
-        const icon = document.createElement("img");
-        icon.setAttribute("src","https://openweathermap.org/img/wn/" + fIcon + "@2x.png")
-        data.append(icon);
-
-        const tempSpan = document.createElement("div");
-        tempSpan.innerHTML = `High Temp: ${fTemp} °`
-        data.append(tempSpan);
-
-        const lowTempSpan = document.createElement("div");
-        lowTempSpan.innerHTML = `Low Temp: ${fLowTemp}°`
-        data.append(lowTempSpan)
-
-        const humiditySpan = document.createElement("div");
-        humiditySpan.innerHTML = `Humidity ${fHumidity}%`;
-        data.append(humiditySpan);
-
-        forecastRow.append(data);
+          for (let marker, i = 0; i < locationsArray.length; i++) {
+              marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(locationsArray[i].latitude, locationsArray[i].longitude),
+                  map: map
+              });
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
+                    infowindow.setContent(locationsArray[i].city);
+                    infowindow.open(map, marker);
+                  }
+                })(marker, i));
+          }
 
       }
-    });
-  };
+  );
+}
 
 function getCityWeather(city) {
     $.ajax({
@@ -143,32 +153,70 @@ function getCityWeather(city) {
     });
 };
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, positionError);
-  } else {
-    console.log("Geolocation is not supported by this browser.");
-  }
-}
+//* function displayWeatherForecast(latitude,longitude){
+//   $.ajax({
+//     method: "GET",
+//     url: "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&appid=" + openWeatherApiKey
+//   }).then(function(response){
+//     const forecastRow = $("#forecast-row");
+//     forecastRow.empty();
 
-function showPosition(position) {
-  // Success, can use position.
-  console.log("Your position is: " + position);
-}
+//     for(var i = 1; i < 6; i++){
+//       const fDate = new Date(response.daily[i].dt * 1000)
+//       const fTemp = (((response.daily[i].temp.max - 273.15) * (9/5) + 32).toFixed(0));
+//       const fLowTemp = (((response.daily[i].temp.min - 273.15) * (9/5) + 32).toFixed(0));
+//       const fHumidity = response.daily[i].humidity;
+//       const fIcon = response.daily[i].weather[0].icon;
 
-function positionError(error) {
-  if (error.PERMISSION_DENIED) {
-    console.log("Error: permission denied");
-    // Your custom modal here.
-    showError('Geolocation is not enabled. Please enable to use this feature.');
-  } else {
-    // Handle other kinds of errors.
-    console.log("Other kind of error: " + error);
-  }
-}
+//       const data = document.createElement("td");
 
-function showError(message) {
-  // TODO
-}
+//       const dateHeader = document.createElement("h3");
+//       dateHeader.innerHTML = fDate.toLocaleDateString()
+//       data.append(dateHeader)
 
-getLocation();
+//       const icon = document.createElement("img");
+//       icon.setAttribute("src","https://openweathermap.org/img/wn/" + fIcon + "@2x.png")
+//       data.append(icon);
+
+//       const tempSpan = document.createElement("div");
+//       tempSpan.innerHTML = `High Temp: ${fTemp} °`
+//       data.append(tempSpan);
+
+//       const lowTempSpan = document.createElement("div");
+//       lowTempSpan.innerHTML = `Low Temp: ${fLowTemp}°`
+//       data.append(lowTempSpan)
+
+//       const humiditySpan = document.createElement("div");
+//       humiditySpan.innerHTML = `Humidity ${fHumidity}%`;
+//       data.append(humiditySpan);
+
+//       forecastRow.append(data);
+
+//     }
+//   });
+//* };
+
+
+//* function getLocation() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(showPosition, positionError);
+//   } else {
+//     console.log("Geolocation is not supported by this browser.");
+//   }
+// }
+
+// function showPosition(position) {
+//   // Success, can use position.
+//   console.log("Your position is: " + position);
+// }
+
+// function positionError(error) {
+//   if (error.PERMISSION_DENIED) {
+//     console.log("Error: permission denied");
+//   } else {
+//     // Handle other kinds of errors.
+//     console.log("Other kind of error: " + error);
+//   }
+// }
+
+//* getLocation();

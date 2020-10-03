@@ -10,6 +10,7 @@ module.exports = (app) => {
     app.post('/api/spots', (req, res) => {
         // .create to add new data to mySQL database
         db.spots.create({
+            name: req.body.name,
             city: req.body.city,
             latitude: req.body.latitude,
             longitude: req.body.longitude,
@@ -23,6 +24,7 @@ module.exports = (app) => {
     app.put('/api/spots', (req, res) => {
         // .update to update the data from mySQL database
         db.spots.update({
+            name: req.body.name,
             city: req.body.city,
             latitude: req.body.latitude,
             longitude: req.body.longitude,

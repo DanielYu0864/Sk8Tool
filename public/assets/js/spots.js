@@ -59,13 +59,13 @@ $(function(){
     $('.create-form').on('submit', function(event){
         event.preventDefault();
 
-        var newSpot ={
+        var newSpot = {
             name: $('#spot-name').val().trim(),
-            description: $('#spot-description').val().trim(),
             city: $('#spot-city').val().trim(),
-            cross_street: $('#cross-streets').val().trim(),
             latitude: latitude,
             longitude: longitude,
+            cross_street: $('#cross-streets').val().trim(),
+            description: $('#spot-description').val().trim(),
             security: $('[name=security]:checked').val().trim(),
             security_when: $('#securityWhen').val().trim()
 
@@ -76,9 +76,10 @@ $(function(){
             data: newSpot
         }).then(function(){
             console.log('Adding new spot');
-            // location.reload();
+            location.reload();
         });
     });
+
     //this doesn't exist yet but I am coding it incase we want to add it
     // $('.delete-spot').on('click', function(event){
     //     var id = $(this).data('id');
