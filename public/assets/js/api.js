@@ -108,13 +108,28 @@ $('.spot-buttons').on('click', function(event) {
         type: 'GET'
     }).then((data) => {
 
-        latitude = data.latitude;
-        longitude = data.longitude;
-        console.log(latitude, longitude);
-        markerApi(latitude, longitude);
+        let latitude = data.latitude;
+        let longitude = data.longitude;
+        let city = data.city;
+        console.log(city);
+        if(data.latitude && data.latitude) {
+            markerApi(latitude, longitude);
+        } else {
+            $.ajax({
+                method: "GET",
+                url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + openWeatherApiKey
+                }).then(function(response){
+                    latitude = response.coord.lat;
+                    longitude = response.coord.lon;
+                    markerApi(latitude, longitude)
+                });
+        }
+
     });
 
 });
+
+
 
 function getCityWeather(city) {
     $.ajax({
