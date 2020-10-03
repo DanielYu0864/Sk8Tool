@@ -16,6 +16,7 @@ $(function(){
     //* }
     let latitude;
     let longitude;
+    let securityGuards;
     // function success to get the latitude and longitude
     function success(pos) {
         var crd = pos.coords;
@@ -44,19 +45,23 @@ $(function(){
             console.log("Geolocation is not supported by this browser.");
           }
     });
-    //display yes security box if yes 
-    $(".security-yes-no").on('click', function(event){
-        
-        var yesSecurity = $(this).data('security');
-        
-        if (yesSecurity.checked == true){
-            securityWhen.style.display = 'block'; 
-        } else {
-            securityWhen.style.display = 'none';
-        };
+    //display yes security when input box if yes
+    $('.security-guards').on('click', function(event) {
+        event.preventDefault();
+        let securityData = $(this).data('security');
+        if(securityData === true && securityGuards != true) {
+            securityGuards = true;
+            console.log('true');
+            $('.security').append('<input class="security-when" id="securityWhen" sytle="display-none" placeholder="If yes when?">');
+
+        } else if(securityData === false && securityGuards != false){
+            securityGuards = false;
+            console.log('false');
+            $('.security-when').remove();
+        }
     });
     // when the submit button 'click' will push the data to the database
-    $('.create-form').on('submit', function(event){
+    $('.submit-spot').on('click', function(event){
         event.preventDefault();
 
         var newSpot = {
@@ -66,9 +71,8 @@ $(function(){
             longitude: longitude,
             cross_street: $('#cross-streets').val().trim(),
             description: $('#spot-description').val().trim(),
-            security: $('[name=security]:checked').val().trim(),
+            security_guards: securityGuards,
             security_when: $('#securityWhen').val().trim()
-
         };
         console.log(newSpot);
         $.ajax('api/spots',{
