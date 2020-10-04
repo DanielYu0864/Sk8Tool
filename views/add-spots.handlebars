@@ -1,13 +1,12 @@
 <h1>Sk8Tool</h1>
 
 <div class="title">
-    <h2>title</h2>
     <div>current time</div>
     <div>weather</div>
-    <a href="/"><button class='home-btn' id="home-btn">Home</button></a>
+    <h2>Sk8Tool add a spot.</h2>
+    <p>Please use the form below to add your spot. Sk8Tool works best if you click "use your current location" while at your spot. Otherwise please give us the nearest cross street and additional details to find your spot in the description field. Thanks for contributing</p>
+    <a href="/"><button class='form-btn' id="home-btn">Home</button></a>
 </div>
-</div>
-
 
 <div class='add-spot' id='add-spot'>
         <h2>Add a Spot</h2>
@@ -19,17 +18,17 @@
             <h3>Where Is Your Spot?</h3>
             <label for='spot-city'>What city is your spot in?</label>
             <input type='text' class='spot-city' id='spot-city' placeholder='Ex: Seattle'>
-            <button type="button" class='use-current-location' id='use-current-location'>Use your current location</button>
+            <button type="button" class='form-btn' id='use-current-location'>Use your current location</button>
             <div id="current-spot"></div>
             <br>
             <label for='cross-streets'>OR add the closest cross streets:</label>
             <input class='cross-streets' id='cross-streets' placeholder='Example: 9th and pine'>
             <div class='security' id='security'>
                 <label for="security-switch">Is there security at the spot?</label><br>
-                <button class="security-guards" id='security-guards' data-security='true'>Yes</button>
-                <button class='security-guards' id='security-guards' data-security='false'>No</button>
+                <button class='form-btn' id='security-guards' data-security='true'>Yes</button>
+                <button class='form-btn' id='security-guards' data-security='false'>No</button>
             </div>
-            <button type='submit' class='submit-spot' id='submit-spot'>Sumbit Your Spot</button>
+            <button type='submit' class='form-btn' id='submit-spot'>Sumbit Your Spot</button>
 
         </form>
 </div>

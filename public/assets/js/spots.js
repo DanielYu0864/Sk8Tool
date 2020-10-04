@@ -84,6 +84,18 @@ $(function(){
         });
     });
 
+    // const dateBanner = document.getElementById('current-date')
+    //     dateBanner.textContenet = moment().format('dddd,MMM, Do YYYY');
+    // const currentDate = getTodaysDate(currentDate);
+    // const currentDateKey = getKeyFromDate(currentDate);
+
+
+    // function getTodaysDate(){
+    //     return moment().startOf("day")
+    // }
+    // getTodaysDate();
+
+    
 
 
     //this doesn't exist yet but I am coding it incase we want to add it
