@@ -52,6 +52,20 @@ body{
     box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
     padding: 10px;
 }
+.button-bar{
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    height: auto;
+    max-width:95%;
+    border-style: solid;
+    border-color: hotpink;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
+    padding: 10px;
+
+}
+
 /* .spot-description{
     width: 160px;
     height: 70px;
@@ -61,7 +75,7 @@ body{
 	top:75px;
 } */
 
-#home-btn{
+/* #home-btn{
     background-color: rgba(33, 207, 85, 0.671);
     color: black;
     font-weight: 400;
@@ -73,7 +87,7 @@ body{
     padding: 10px;
     float: right;
     margin: 75px;
-}
+} */
 
 .display-none {
     display: none;
@@ -95,7 +109,7 @@ h1{
     font-size: 40px;
     background-color: rgba(4, 110, 96, 0.301);
     height: auto;
-    width: 100%;
+    width: 95%;
     border-style: solid;
     border-color: hotpink;
     border-width: 1px;
