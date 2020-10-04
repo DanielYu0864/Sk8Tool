@@ -5,7 +5,7 @@
     <div>current time</div>
     <div>weather</div>
     <div class="">
-    <button class='home-btn'><a href="/">Home</a></button>
+    <a href="/"><button class='home-btn'>Home</button></a>
 </div>
 </div>
 
@@ -29,10 +29,10 @@
             <br>
             <label for='cross-streets'>OR add the closest cross streets:</label>
             <input class='cross-streets' id='cross-streets' placeholder='Example: 9th and pine'>
-            <div class='security'>
+            <div class='security' id='security'>
                 <label for="security-switch">Is there security at the spot?</label><br>
-                <button id='security-guards-btn-yes'class='security-guards' data-security='true'>Yes</button>
-                <button id='security-guards-btn-no'class='security-guards' data-security='false'>No</button>
+                <button class="security-guards" id='security-guards' data-security='true'>Yes</button>
+                <button class='security-guards' id='security-guards' data-security='false'>No</button>
             </div>
             <button type='submit' class='submit-spot' id='submit-spot'>Sumbit Your Spot</button>
 
