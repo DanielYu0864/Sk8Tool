@@ -23,7 +23,7 @@ $(function(){
 
         latitude = crd.latitude;
         longitude = crd.longitude;
-        $('#current-spot').html(`<p class='latitude'>Latitude: ${latitude}</p><p class='longitude'>Longitude: ${longitude}</p>`);
+        // $('#current-spot').html(`<p class='latitude'>Latitude: ${latitude}</p><p class='longitude'>Longitude: ${longitude}</p>`);
         //* var latlon = latitude + "," +  longitude;
         //* var img_url = `https://maps.googleapis.com/maps/api/staticmap?center=${latlon}&zoom=14&size=400x300&sensor=false&key=${googleMapApiKey}`;
         //* $('#current-spot').html(`<img src='${img_url}'>`);
@@ -46,18 +46,18 @@ $(function(){
           }
     });
     //display yes security when input box if yes
-    $('.security-guards').on('click', function(event) {
+    $('#security-guards').on('click', function(event) {
         event.preventDefault();
         let securityData = $(this).data('security');
         if(securityData === true && securityGuards != true) {
             securityGuards = true;
             console.log('true');
-            $('.security').append('<input class="security-when" id="securityWhen" sytle="display-none" placeholder="If yes when?">');
+            $('#security').append('<input class="security-when" id="securityWhen" sytle="display-none" placeholder="If yes when?">');
 
         } else if(securityData === false && securityGuards != false){
             securityGuards = false;
             console.log('false');
-            $('.security-when').remove();
+            $('#securityWhen').remove();
         }
     });
     // when the submit button 'click' will push the data to the database

@@ -3,7 +3,7 @@ const openWeatherApiKey = "e93223a6b1823d41860077c8e54b5206"; // D
 const city = document.querySelector('.city-input');
 let searchCity;
 $(function() {
-    $('.view-spots').on('click',() => {
+    $('#view-spots').on('click',() => {
       searchCity = city.value.trim();
       const list = $('#spots-template').html();
       let latitude;
@@ -14,32 +14,32 @@ $(function() {
         }).then(function(response){
         latitude = response.coord.lat;
         longitude = response.coord.lon;
-        $('.main-content').html('<div class="spots-list"></div>'+'<div class="map parkmap" style="width:60%; height:40vw"></div>');
+        $('#main-content').html('<div class="spots-list" id="spots-list"></div>'+'<div class="map parkmap" style="width:60%; height:40vw"></div>');
         markerApi(latitude, longitude);
-        $('.spots-list').html(list);
+        $('#spots-list').html(list);
         });
 
     });
-    $('.parks-btn').on('click',() =>{
+    $('#parks-btn').on('click',() =>{
         searchCity = city.value.trim();
-        $('.main-content').html('<iframe class ="parkmap" frameborder="0" style="border:0v"></iframe>');
-        const mapI = document.querySelector(".parkmap");
+        $('#main-content').html('<iframe class ="parkmap" id="parkmap" frameborder="0" style="border:0v"></iframe>');
+        const mapI = document.querySelector("#parkmap");
         mapI.setAttribute("style", "width:100%; height:40vw");
         mapI.setAttribute("src", `https://www.google.com/maps/embed/v1/search?q=record+skatepark+in+${searchCity}&key=${googleMapApiKey}`);
     });
 
-    $('.shops-btn').on('click',() =>{
+    $('#shops-btn').on('click',() =>{
         searchCity = city.value.trim();
-        $('.main-content').html('<iframe class ="parkmap" frameborder="0" style="border:0v"></iframe>');
-        const mapI = document.querySelector(".parkmap");
+        $('#main-content').html('<iframe class ="parkmap" id="parkmap" frameborder="0" style="border:0v"></iframe>');
+        const mapI = document.querySelector('#parkmap');
         mapI.setAttribute("style", "width:100%; height:40vw");
         mapI.setAttribute("src", `https://www.google.com/maps/embed/v1/search?q=record+skateshop+in+${searchCity}&key=${googleMapApiKey}`);
     });
 
 
-    $('.weather-btn').on('click', () =>{
+    $('#weather-btn').on('click', () =>{
         searchCity = city.value.trim();
-        $('.main-content').html(`
+        $('#main-content').html(`
         <table id="forecast-table">
         <tbody id="forecast-body">
             <tr id="forecast-row">
