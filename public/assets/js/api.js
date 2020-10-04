@@ -24,7 +24,7 @@ $(function() {
         searchCity = city.value.trim();
         $('#main-content').html('<iframe class ="parkmap" id="parkmap" frameborder="0" style="border:0v"></iframe>');
         const mapI = document.querySelector("#parkmap");
-        mapI.setAttribute("style", "width:100%; height:40vw");
+        mapI.setAttribute("style", "width:95%; height:40vw");
         mapI.setAttribute("src", `https://www.google.com/maps/embed/v1/search?q=record+skatepark+in+${searchCity}&key=${googleMapApiKey}`);
     });
 
@@ -32,7 +32,7 @@ $(function() {
         searchCity = city.value.trim();
         $('#main-content').html('<iframe class ="parkmap" id="parkmap" frameborder="0" style="border:0v"></iframe>');
         const mapI = document.querySelector('#parkmap');
-        mapI.setAttribute("style", "width:100%; height:40vw");
+        mapI.setAttribute("style", "width:95%; height:40vw");
         mapI.setAttribute("src", `https://www.google.com/maps/embed/v1/search?q=record+skateshop+in+${searchCity}&key=${googleMapApiKey}`);
     });
 
