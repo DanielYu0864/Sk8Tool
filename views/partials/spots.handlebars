@@ -4,17 +4,16 @@
     <ul class=`spots{{id}}`>
         <div class='spot-container'>
             <button class='spot-buttons' data-id={{ id }}>{{ id }}</button>
-            <li>City: {{ city }}</li>
-            <li class="spot">Spot: {{ name }}</li>
-            <li>Spot description: {{ description }}</li>
+            <p>City: {{ city }}</p>
+            <p class="spot">Spot: {{ name }}</p>
+            <p>Spot description: {{ description }}</p>
             {{#if cross_street}}
-            <li>Cross streets: {{ cross_street }}</li>
+            <p>Cross streets: {{ cross_street }}</p>
             {{/if}}
-            <li>Security: {{ security_guards }}</li>
+            <p>Security: {{ security_guards }}</p>
             {{#if security_guards}}
-            <li>Security present:{{ security_when }}</li>
+            <p>Security present:{{ security_when }}</p>
             {{/if}}
-            </li>
         </div>
     </ul>
     {{/each}}
