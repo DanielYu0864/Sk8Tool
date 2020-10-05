@@ -1,5 +1,6 @@
 // Dependencies
 const express = require('express');
+
 const PORT = process.env.PORT || 8080;
 const app = express();
 // sequelize db
@@ -26,9 +27,7 @@ app.set('view engine', 'handlebars');
 require('./controllers/api-routes')(app);
 require('./controllers/hbs-routes')(app);
 
-
-
-db.sequelize.sync(/*{ force: true }*/).then(() => {
+db.sequelize.sync(/* { force: true } */).then(() => {
   app.listen(PORT, () => {
     console.log(`app listening on -> localhost:${PORT}`);
   });
