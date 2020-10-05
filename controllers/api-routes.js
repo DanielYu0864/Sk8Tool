@@ -1,5 +1,4 @@
 const db = require('../models');
-const spots = require('../models/spots');
 
 module.exports = (app) => {
   // GET route for all of the spots data
@@ -11,7 +10,7 @@ module.exports = (app) => {
   app.get('/api/spots/:id', (req, res) => {
     db.spots.findOne({
       where: {
-        id: req.params.id,
+        id: req.params.id
       },
     }).then((spot) => res.json(spot));
   });
@@ -27,7 +26,7 @@ module.exports = (app) => {
       cross_street: req.body.cross_street,
       description: req.body.description,
       security_guards: req.body.security_guards,
-      security_when: req.body.security_when,
+      security_when: req.body.security_when
     }).then((spot) => res.json(spot));
   });
   // PUT route for update spots info
@@ -41,12 +40,13 @@ module.exports = (app) => {
       cross_street: req.body.cross_street,
       description: req.body.description,
       security_guards: req.body.security_guards,
-      security_when: req.body.security_when,
+      security_when: req.body.security_when
     }, {
       // conditions
       where: {
-        id: req.body.id,
+        id: req.body.id
       },
     }).then((spot) => res.json(spot));
   });
+
 };

@@ -1,9 +1,11 @@
 const googleMapApiKey = 'AIzaSyDmZhf4Cy3XVS_6hruDDGNfWfd0Uaxfxp4'; // D
 const openWeatherApiKey = 'e93223a6b1823d41860077c8e54b5206'; // D
 const city = document.querySelector('.city-input');
+
 let searchCity;
 $(() => {
   // view all the spots from database in input city
+  $('#current-time').html(moment().format('MMMM Do YYYY, h:mm a'));
   $('#view-spots').on('click', () => {
     searchCity = city.value.trim();
     const list = $('#spots-template').html();
@@ -11,7 +13,7 @@ $(() => {
     let longitude;
     $.ajax({
       method: 'GET',
-      url: `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${openWeatherApiKey}`,
+      url: `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${openWeatherApiKey}`
     }).then((response) => {
       latitude = response.coord.lat;
       longitude = response.coord.lon;
@@ -23,7 +25,7 @@ $(() => {
   // search all skate park in the input city
   $('#parks-btn').on('click', () => {
     searchCity = city.value.trim();
-    $('#main-content').html('<iframe class ="parkmap" id="parkmap" frameborder="0" style="border:0v"></iframe>');
+    $('#main-content').html('<iframe class ="parkmap map" id="parkmap" frameborder="0" style="border:0px; margin:0px"></iframe>');
     const mapI = document.querySelector('#parkmap');
     mapI.setAttribute('style', 'width:95%; height:40vw');
     mapI.setAttribute('src', `https://www.google.com/maps/embed/v1/search?q=record+skatepark+in+${searchCity}&key=${googleMapApiKey}`);
@@ -31,7 +33,7 @@ $(() => {
   // search all the skate shop in the input city
   $('#shops-btn').on('click', () => {
     searchCity = city.value.trim();
-    $('#main-content').html('<iframe class ="parkmap" id="parkmap" frameborder="0" style="border:0v"></iframe>');
+    $('#main-content').html('<iframe class ="parkmap map" id="parkmap" frameborder="0" style="border:0px; margin:0px"></iframe>');
     const mapI = document.querySelector('#parkmap');
     mapI.setAttribute('style', 'width:95%; height:40vw');
     mapI.setAttribute('src', `https://www.google.com/maps/embed/v1/search?q=record+skateshop+in+${searchCity}&key=${googleMapApiKey}`);
@@ -57,13 +59,13 @@ function markerApi(latitude, longitude) {
   const locations = {}; const
     locationsArray = [];
   $.ajax('api/spots', {
-    mathod: 'GET',
+    mathod: 'GET'
   }).then(
     (data) => {
       const map = new google.maps.Map(document.querySelector('.map'), {
         zoom: 10,
         center: new google.maps.LatLng(latitude, longitude),
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
       const infowindow = new google.maps.InfoWindow();
@@ -84,7 +86,7 @@ function markerApi(latitude, longitude) {
       for (let marker, i = 0; i < locationsArray.length; i++) {
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(locationsArray[i].latitude, locationsArray[i].longitude),
-          map,
+          map
         });
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
           return function () {
@@ -128,14 +130,14 @@ $('.spot-buttons').on('click', function (event) {
 function getCityWeather(city) {
   $.ajax({
     method: 'GET',
-    url: `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${openWeatherApiKey}`,
+    url: `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${openWeatherApiKey}`
   }).then((response) => {
     const latitude = response.coord.lat;
     const longitude = response.coord.lon;
 
     $.ajax({
       method: 'GET',
-      url: `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${openWeatherApiKey}`,
+      url: `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${openWeatherApiKey}`
     }).then((response) => {
       const forecastRow = $('#forecast-row');
       forecastRow.empty();
