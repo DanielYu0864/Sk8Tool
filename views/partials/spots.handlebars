@@ -1,6 +1,7 @@
-<ul class='spots'>
+
 
     {{#each spots}}
+    <ul class=`spots{{id}}`>
         <button class='spot-buttons' data-id={{ id }}>{{ id }}</button>
         <li>City: {{ city }}</li>
         <li class="spot">Spot: {{ name }}</li>
@@ -13,9 +14,9 @@
         <li>Security present:{{ security_when }}</li>
         {{/if}}
     </li>
+    </ul>
     {{/each}}
 
-</ul>
 
 
 <script src="/assets/js/api.js"></script>
