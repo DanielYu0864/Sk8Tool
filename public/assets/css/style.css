@@ -8,7 +8,6 @@
     border: 2px;
 
 }
-html,
 body{
     background-image: url("../background.jpg");
     -webkit-background-size: cover;
@@ -33,7 +32,6 @@ body{
 .add-spot{
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    
     background-color: rgba(4, 110, 96, 0.301);
     font-family: 'Permanent Marker', cursive;
     font-weight: lighter;
@@ -113,6 +111,19 @@ td{
     box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
     padding: 10px; 
 }
+.spot-container{
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    background-color: rgba(4, 110, 96, 0.301);
+    width: auto;
+    height: auto;
+    border-style: solid;
+    border-color: hotpink;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
+    padding: 10px; 
+}
 
 h1,h2,h3,footer{
     text-align: center;
@@ -132,6 +143,17 @@ h1{
     border-radius: 10px;
     box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
     padding: 10px;
+}
+.spot-buttons{
+    background-color: rgba(33, 207, 85, 0.671);
+    color: black;
+    font-weight: 400;
+    text-align: center;
+    border-radius:12px;
+    width: 75px;
+    max-width: 50%;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(0, 0, 0, 0.527);
+    margin: 5px;
 }
 .form-btn{
     background-color: rgba(33, 207, 85, 0.671);
@@ -168,7 +190,6 @@ button:hover{
     transform: transform 150ms;
     cursor: pointer;
 }
-
 .forecast{
     background-color: rgba(4, 110, 96, 0.301);
     width: 95%;
@@ -234,50 +255,5 @@ a{
 	top:75px;
 } */
 
-/* #home-btn{
-    background-color: rgba(33, 207, 85, 0.671);
-    color: black;
-    font-weight: 400;
-    text-align: center;
-    border-radius:12px;
-    width: 140px;
-    max-width: 50%;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(0, 0, 0, 0.527);
-    padding: 10px;
-    float: right;
-    margin: 75px;
-} */
-/* #app-explain{
-    background-color: rgba(4, 110, 96, 0.301);
-    font-family: 'Permanent Marker', cursive;
-    font-weight: lighter;
-    text-shadow: 1px 1px 1px hotpink;
-    height: auto;
-    max-width:95%;
-    border-style: solid;
-    border-color: hotpink;
-    border-width: 1px;
-    border-radius: 10px;
-    box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
-    padding: 10px;
-} */
-/* #search{
-    background-color: rgba(4, 110, 96, 0.301);
-    height: auto;
-    max-width:95%;
-    border-style: solid;
-    border-color: hotpink;
-    border-width: 1px;
-    border-radius: 10px;
-    box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
-    padding: 10px;
 
-} */
-/* input{
-    width: 160px;
-    border-radius: 5px;
-    padding: 10px;
-    position: relative;;
-	top:75px;
 
-} */
