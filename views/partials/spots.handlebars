@@ -2,18 +2,20 @@
 
     {{#each spots}}
     <ul class=`spots{{id}}`>
-        <button class='spot-buttons' data-id={{ id }}>{{ id }}</button>
-        <li>City: {{ city }}</li>
-        <li class="spot">Spot: {{ name }}</li>
-        <li>Spot description: {{ description }}</li>
-        {{#if cross_street}}
-        <li>Cross streets: {{ cross_street }}</li>
-        {{/if}}
-        <li>Security: {{ security_guards }}</li>
-        {{#if security_guards}}
-        <li>Security present:{{ security_when }}</li>
-        {{/if}}
-    </li>
+        <div class='spot-container'>
+            <button class='spot-buttons' data-id={{ id }}>{{ id }}</button>
+            <li>City: {{ city }}</li>
+            <li class="spot">Spot: {{ name }}</li>
+            <li>Spot description: {{ description }}</li>
+            {{#if cross_street}}
+            <li>Cross streets: {{ cross_street }}</li>
+            {{/if}}
+            <li>Security: {{ security_guards }}</li>
+            {{#if security_guards}}
+            <li>Security present:{{ security_when }}</li>
+            {{/if}}
+            </li>
+        </div>
     </ul>
     {{/each}}
 
