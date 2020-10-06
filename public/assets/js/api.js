@@ -17,7 +17,7 @@ $(() => {
     }).then((response) => {
       latitude = response.coord.lat;
       longitude = response.coord.lon;
-      $('#main-content').html('<div class="spots-list" id="spots-list"></div>' + '<div class="map parkmap" style="width:60%; height:40vw"></div>');
+      $('#main-content').html('<div class="spots-list" id="spots-list"></div>' + '<div class="map parkmap" style="width:55%; height:40vw"></div>');
       markerApi(latitude, longitude);
       $('#spots-list').html(list);
     });
@@ -56,8 +56,8 @@ $(() => {
 });
 // create the spot markers in the map
 function markerApi(latitude, longitude) {
-  const locations = {}; const
-    locationsArray = [];
+  let locations = {};
+  const locationsArray = [];
   $.ajax('api/spots', {
     mathod: 'GET'
   }).then(
@@ -73,15 +73,11 @@ function markerApi(latitude, longitude) {
       // loop through spots and push locations info to locationsArray
       data.forEach((element) => {
         if (element.latitude && element.longitude) {
-          locations.id = element.id;
-          locations.city = element.city;
-          locations.latitude = element.latitude;
-          locations.longitude = element.longitude;
-          locationsArray.push(locations);
+          locationsArray.push(element);
         }
-        return locationsArray;
       });
-      console.log(locationsArray);
+
+      // console.log(locationsArray);
 
       for (let marker, i = 0; i < locationsArray.length; i++) {
         marker = new google.maps.Marker({

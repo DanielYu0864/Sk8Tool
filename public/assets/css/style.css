@@ -74,6 +74,10 @@ body{
     box-shadow: 0 0.4rem 1.4rem 0 rgba(0, 0, 0, 0.527);
     margin: 5px;
 }
+.spots-list {
+    float: left;
+    width: 40%;
+}
 
 .display-none {
     display: none;
@@ -113,7 +117,7 @@ td{
     border-width: 1px;
     border-radius: 10px;
     box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
-    padding: 10px; 
+    padding: 10px;
 }
 .spot-container{
     -webkit-flex-wrap: wrap;
@@ -129,7 +133,7 @@ td{
     border-radius: 10px;
     box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
     padding: 10px;
-    margin: 5px; 
+    margin: 5px;
 }
 
 
@@ -240,6 +244,8 @@ footer{
     border-radius: 10px;
     box-shadow: 10px 2px 2px rgba(0, 0, 0, 0.527);
     padding: 10px;
+    float: left;
+    width: 100%;
 }
 a{
     color:rgba(33, 207, 85, 0.671);
@@ -254,6 +260,11 @@ a{
     }
 }
 
+/* ul {
+    padding: 0px;
+    margin: 0px;
+    margin-left: 0px;
+} */
 /* .spot-description{
     width: 160px;
     height: 70px;
@@ -262,6 +273,3 @@ a{
     position: relative;;
 	top:75px;
 } */
-
-
-
