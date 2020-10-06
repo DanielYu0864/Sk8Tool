@@ -11,7 +11,8 @@ module.exports = function (app) {
       }
       // render spots obj to view-spots.handlebars
       res.render('index', { spots });
-    });
+    })
+      .catch((err) => res.stats(401).json(err));
 
   });
 
