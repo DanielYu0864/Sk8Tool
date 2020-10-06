@@ -4,7 +4,9 @@ module.exports = (app) => {
   // GET route for all of the spots data
   app.get('/api/spots', (req, res) => {
     // .findAll to get all the data from mySQL database
-    db.spots.findAll({}).then((spots) => res.json(spots));
+    db.spots.findAll({})
+      .then((spots) => res.json(spots))
+        .catch((err) => res.stats(401).json(err));
   });
 
   app.get('/api/spots/:id', (req, res) => {
@@ -12,7 +14,8 @@ module.exports = (app) => {
       where: {
         id: req.params.id
       },
-    }).then((spot) => res.json(spot));
+    }).then((spot) => res.json(spot))
+        .catch((err) => res.stats(401).json(err));
   });
 
   // POST route for add new spots info
@@ -27,7 +30,8 @@ module.exports = (app) => {
       description: req.body.description,
       security_guards: req.body.security_guards,
       security_when: req.body.security_when
-    }).then((spot) => res.json(spot));
+    }).then((spot) => res.json(spot))
+        .catch((err) => res.stats(401).json(err));
   });
   // PUT route for update spots info
   app.put('/api/spots', (req, res) => {
@@ -46,7 +50,8 @@ module.exports = (app) => {
       where: {
         id: req.body.id
       },
-    }).then((spot) => res.json(spot));
+    }).then((spot) => res.json(spot))
+      .catch((err) => res.stats(401).json(err));
   });
 
 };

@@ -1,19 +1,7 @@
 const googleMapApiKey = 'AIzaSyDmZhf4Cy3XVS_6hruDDGNfWfd0Uaxfxp4'; // D
 
 $(function(){
-  //*creat-form is from activity code. need to rename
-  //*function initMap(latitude, longitude) {
-  //*     const myLatLng = { lat: latitude, lng: longitude };
-  //*     const map = new google.maps.Map($('#current-spot'), {
-  //*       zoom: 4,
-  //*       center: myLatLng,
-  //*     });
-  //*     new google.maps.Marker({
-  //*       position: myLatLng,
-  //*       map,
-  //*       title: "Hello World!",
-  //*     });
-  //* }
+
   let latitude;
   let longitude;
   let securityGuards;
@@ -23,10 +11,7 @@ $(function(){
 
       latitude = crd.latitude;
       longitude = crd.longitude;
-      // $('#current-spot').html(`<p class='latitude'>Latitude: ${latitude}</p><p class='longitude'>Longitude: ${longitude}</p>`);
-      //* var latlon = latitude + "," +  longitude;
-      //* var img_url = `https://maps.googleapis.com/maps/api/staticmap?center=${latlon}&zoom=14&size=400x300&sensor=false&key=${googleMapApiKey}`;
-      //* $('#current-spot').html(`<img src='${img_url}'>`);
+
   // display yes security when input box if yes
   console.log('Your current position is:');
   console.info(crd);
@@ -91,31 +76,7 @@ $(function(){
       console.log('Adding new spot');
       location.reload();
   });
-  // const dateBanner = document.getElementById('current-date')
-    //     dateBanner.textContenet = moment().format('dddd,MMM, Do YYYY');
-    // const currentDate = getTodaysDate(currentDate);
-    // const currentDateKey = getKeyFromDate(currentDate);
 
-
-    // function getTodaysDate(){
-    //     return moment().startOf("day")
-    // }
-    // getTodaysDate();
-
-
-
-
-    //this doesn't exist yet but I am coding it incase we want to add it
-    // $('.delete-spot').on('click', function(event){
-    //     var id = $(this).data('id');
-
-    //     $.ajax('/api/spots' + id, {
-    //         type: 'DELETE'
-    //     }).then(function(){
-    //         console.log('Spot deleted', id);
-    //         location.reload();
-    //     });
-    // });
   });
 
 });
