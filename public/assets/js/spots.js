@@ -71,7 +71,7 @@ $(function(){
   $('#submit-spot').on('click', function(event){
     event.preventDefault();
 
-    var newSpot = {
+    let newSpot = {
       name: $('#spot-name').val().trim(),
       city: $('#spot-city').val().trim(),
       latitude: latitude,
@@ -79,8 +79,10 @@ $(function(){
       cross_street: $('#cross-streets').val().trim(),
       description: $('#spot-description').val().trim(),
       security_guards: securityGuards,
-      security_when: $('#securityWhen').val().trim()
-  };
+      security_when: $('#securityWhen').val()
+    };
+
+
   console.log(newSpot);
   $.ajax('api/spots',{
       type: 'POST',
