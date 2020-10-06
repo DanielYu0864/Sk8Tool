@@ -17,7 +17,7 @@ $(() => {
     }).then((response) => {
       latitude = response.coord.lat;
       longitude = response.coord.lon;
-      $('#main-content').html('<div class="spots-list" id="spots-list"></div>' + '<div class="map parkmap" style="width:60%; height:40vw"></div>');
+      $('#main-content').html('<div class="spots-list" id="spots-list"></div>' + '<div class="map parkmap" style="width:55%; height:40vw"></div>');
       markerApi(latitude, longitude);
       $('#spots-list').html(list);
     });

@@ -49,16 +49,23 @@ $(function(){
   $('#security-guards-yes').on('click', function(event) {
     event.preventDefault();
     let securityData = $(this).data('security');
-      if(securityData === true && securityGuards != true) {
-        securityGuards = true;
-        console.log('true');
-        $('#security').append('<input class="security-when" id="securityWhen" sytle="display-none" placeholder="If yes when?">');
+    if(securityData === true && securityGuards != true) {
+      securityGuards = true;
+      console.log('true');
+      $('#security').append('<input class="security-when" id="securityWhen" sytle="display-none" placeholder="If yes when?">');
 
-      } else {
-        securityGuards = false;
-        console.log('false');
-        // $('#securityWhen').remove();
     }
+
+  });
+  $('#security-guards-no').on('click', function(event) {
+    event.preventDefault();
+    let securityData = $(this).data('security');
+    if(securityData === false && securityGuards != false) {
+      securityGuards = false;
+      console.log('false');
+      $('#securityWhen').remove();
+    }
+
   });
 // when the submit button 'click' will push the data to the database
   $('#submit-spot').on('click', function(event){
