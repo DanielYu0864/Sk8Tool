@@ -21,7 +21,7 @@ $(() => {
       markerApi(latitude, longitude);
       $('#spots-list').html(list);
     })
-      .catch(err => console.error(err));
+      .fail(err => console.error(err));
   });
   // search all skate park in the input city
   $('#parks-btn').on('click', () => {
@@ -94,7 +94,7 @@ function markerApi(latitude, longitude) {
       }
     },
   )
-  .catch(err => console.error(err));
+  .fail(err => console.error(err));
 }
 // the button will center the marker on the map
 // eslint-disable-next-line no-undef
@@ -122,7 +122,7 @@ $('.spot-buttons').on('click', function (event) {
       });
     }
   })
-    .catch(err => console.error(err));
+    .fail(err => console.error(err));
 });
 
 // function to get the city weather info
@@ -172,8 +172,6 @@ function getCityWeather(city) {
 
         forecastRow.append(data);
       }
-    })
-    .catch(err => console.error(err));
-  })
-    .catch(err => console.error(err));
+    }).fail(err => console.error(err));
+  }).fail(err => console.error(err));
 }

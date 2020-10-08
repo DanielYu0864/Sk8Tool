@@ -75,7 +75,7 @@ $(function(){
   }).then(function(){
       console.log('Adding new spot');
       location.reload();
-  }).catch(err => console.error(err));
+  }).fail(err => console.error(err));
 
   });
 
