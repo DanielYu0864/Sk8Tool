@@ -57,7 +57,7 @@ $(() => {
 });
 // create the spot markers in the map
 function markerApi(latitude, longitude) {
-  let locations = {};
+  // let locations = {};
   const locationsArray = [];
   $.ajax('api/spots', {
     mathod: 'GET'
