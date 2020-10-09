@@ -7,17 +7,16 @@ $(function(){
   let securityGuards;
   // function success to get the latitude and longitude
   function success(pos) {
-      var crd = pos.coords;
+    var crd = pos.coords;
 
-      latitude = crd.latitude;
-      longitude = crd.longitude;
-
-  // display yes security when input box if yes
-  console.log('Your current position is:');
-  console.info(crd);
-  console.log(`Latitude : ${latitude}`);
-  console.log(`Longitude: ${longitude}`);
-  return latitude, longitude;
+    latitude = crd.latitude;
+    longitude = crd.longitude;
+    $('#use-current-location').html("Got Your Current Location");
+  // console.log('Your current position is:');
+  // console.info(crd);
+  // console.log(`Latitude : ${latitude}`);
+  // console.log(`Longitude: ${longitude}`);
+    return latitude, longitude;
   }
   // when the get current location button 'click' will get the user location
   $('#use-current-location').on('click', (event) => {
@@ -30,7 +29,7 @@ $(function(){
         console.log("Geolocation is not supported by this browser.");
       }
   });
-//display yes security when input box if yes
+  //display yes security when input box if yes
   $('#security-guards-yes').on('click', function(event) {
     event.preventDefault();
     let securityData = $(this).data('security');
@@ -42,6 +41,7 @@ $(function(){
     }
 
   });
+
   $('#security-guards-no').on('click', function(event) {
     event.preventDefault();
     let securityData = $(this).data('security');
@@ -67,15 +67,14 @@ $(function(){
       security_when: $('#securityWhen').val()
     };
 
-
-  console.log(newSpot);
-  $.ajax('api/spots',{
-      type: 'POST',
-      data: newSpot
-  }).then(function(){
-      console.log('Adding new spot');
-      location.reload();
-  }).fail(err => console.error(err));
+    // call route add the new spots to the database
+    $.ajax('api/spots',{
+        type: 'POST',
+        data: newSpot
+    }).then(function(){
+        console.log('Adding new spot');
+        location.reload();
+    }).fail(err => console.error(err));
 
   });
 
