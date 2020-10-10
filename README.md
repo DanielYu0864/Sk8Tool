@@ -1,12 +1,22 @@
 # Project-02-Sk8Tool
 ![sk8Tool](./public/assets/background.jpg)
-## Stroy
-```
-  By the end of the 90’s skateparks had begun to pop up everywhere and many
-of them were free to use like public parks.
+- [Story](#story)
+- [Usage](#usage)
+- [Project Description](#projectDescription)
+- [Language](#language)
+- [Repositories](#repositories)
+- [Authors](#authors)
 
-  However many if not all skaters are still always on the lookout for new 
-places to skate and do tricks. What most people see as stairs or handrails,
+
+## Story
+
+For years you could find baseball and softball fields everywhere as well as soccer 
+fields, basketball and tennis courts. Skateboarding and skateboarders 
+however were relegated to finding their own places to practice and do tricks.
+The skateparks that did exist cost money to use and required waivers and pads 
+to even walk into while not providing a wide array of obstacles to use. Now skateparks are are much more common and often free. We built Skatefinder to help skaters find parks and shops easily.
+
+  But it's not the whole story of skateboarding. Many if not all skaters are still always on the lookout for new places to skate and do tricks. What most people see as stairs or handrails,
 benches or embankments skateboarders see as obstacles to be conquered and 
 do tricks on. It’s so pervasive a part of the urban environment that most 
 architecture and engineering also includes deterrents to skateboarders and
@@ -14,19 +24,15 @@ skateboard related wear and tear.
 
   This is where Ska8Tool comes in. We’ve provided a database where 
  skateboarders can share and look up spots to skate at.
-```
 
-### Project Description
 
-```md
-  You could find baseball and softball fields everywhere as well as soccer 
-fields, basketball and tennis courts. Skateboarding and skateboarders 
-however were relegated to finding their own places to practice and do tricks.
-The skateparks that did exist cost money to use and required waivers and pads 
-to even walk into while not providing a wide array of obstacles to use.
-```
+## ProjectDescription
 
-### Usage
+  With Ska8Tool you can still easily search for parks and shops. We didin't stop there though and we have added a database where skaters can add and store spots. They have the ability to drop a pin while they're there, or just enter the nearest cross streets so that it can be found on the map. They can also add a description and even let other skaters know if there is security present at the spot and when. 
+    
+    
+
+## Usage
 
 1. Main page: Input search city and look for the park, shop, weather, and view the spots in the database
 
@@ -36,7 +42,7 @@ to even walk into while not providing a wide array of obstacles to use.
 ![screenshot2](./screenshot/screenshot2.png)
 
 
-### Language
+## Language
 
 - [`Java Script`](https://www.javascript.com/)
 - [`Jquery`](https://jquery.com/)
@@ -49,7 +55,8 @@ to even walk into while not providing a wide array of obstacles to use.
 
 
 
-## About
+## Repositories
 * Project Home Page: https://sk8fndr.herokuapp.com
 * Project Github: https://github.com/DanielYu0864/Project-02DanielYu-HomeWork-9-Good-README-Generator
-* Author: [Daniel Yu](https://github.com/DanielYu0864), [Pete Low](https://github.com/PeteLow-13), [Vasile Tronciu](https://github.com/tronciu92)
+## Authors
+ [Daniel Yu](https://github.com/DanielYu0864), [Pete Low](https://github.com/PeteLow-13), [Vasile Tronciu](https://github.com/tronciu92)
