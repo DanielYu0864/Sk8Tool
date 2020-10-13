@@ -6,12 +6,15 @@ const app = express();
 // sequelize db
 const db = require('./models');
 
+const compression = require('compression');
 // Loop through root and get .env
 // const dotenv = require('dotenv').config();
 
 // Handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(compression());
 
 // Static directory
 app.use(express.static('public'));
