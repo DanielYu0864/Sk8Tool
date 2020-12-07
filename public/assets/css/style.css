@@ -77,7 +77,29 @@ body{
 .spots-list {
     float: left;
     width: 40%;
+    overflow: auto;
+    height: 40vw;
+    margin-top: 0px;
 }
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+    border: 1px solid hotpink;
+    border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background-color: rgba(33, 207, 85, 0.671);
+    border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(30, 207, 84, 0.986);
+    }
 
 .display-none {
     display: none;
