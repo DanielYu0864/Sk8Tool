@@ -1,6 +1,5 @@
 // Dependencies
 const express = require('express');
-const compression = require('compression');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -10,9 +9,6 @@ const db = require('./models');
 const compression = require('compression');
 // Loop through root and get .env
 // const dotenv = require('dotenv').config();
-
-// compress all responses
-app.use(compression());
 
 // Handle data parsing
 app.use(express.urlencoded({ extended: true }));
