@@ -114,6 +114,15 @@ body{
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     height: auto;
+    /* background-color: rgba(4, 110, 96, 0.3); */
+    max-width: 95%;
+    /* box-shadow: rgba(0, 0, 0, 0.525) 10px 2px 2px;
+    border-style: solid;
+    border-color: hotpink;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 10px; */
+    overflow: auto;
 }
 #forecast-table{
     -webkit-flex-wrap: wrap;
