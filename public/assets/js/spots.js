@@ -1,5 +1,4 @@
 const googleMapApiKey = 'AIzaSyDmZhf4Cy3XVS_6hruDDGNfWfd0Uaxfxp4'; // D
-
 $(function(){
 
   let latitude;
@@ -52,7 +51,9 @@ $(function(){
     }
 
   });
+
 // when the submit button 'click' will push the data to the database
+//! did not really use
   $('#submit-spot').on('click', function(event){
     event.preventDefault();
 
