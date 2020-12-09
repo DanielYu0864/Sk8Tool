@@ -21,7 +21,7 @@ body{
 }
 .title{
     background-color: rgba(4, 110, 96, 0.301);
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Permanent Marker';
     font-weight: lighter;
     text-shadow: 1px 1px 1px hotpink;
     height: auto;
@@ -170,7 +170,7 @@ td{
 
 h1,h2,h3,footer{
     text-align: center;
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Permanent Marker';
     text-shadow: 1px 1px 2px hotpink;
     padding: 10px;
 }

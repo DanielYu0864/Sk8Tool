@@ -53,5 +53,7 @@ module.exports = (app) => {
     }).then((spot) => res.json(spot))
       .catch((err) => res.stats(401).json(err));
   });
-
+  // app.get('/env', (req, res) => {
+  //   console.log(process.env);
+  // })
 };
