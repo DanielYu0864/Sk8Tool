@@ -57,6 +57,6 @@ skateboard related wear and tear.
 
 ## Repositories
 * Project Home Page: https://sk8fndr.herokuapp.com
-* Project Github: https://github.com/DanielYu0864/Project-02DanielYu-HomeWork-9-Good-README-Generator
+* Project Github: https://github.com/DanielYu0864/Sk8Tool
 ## Authors
  [Daniel Yu](https://github.com/DanielYu0864), [Pete Low](https://github.com/PeteLow-13), [Vasile Tronciu](https://github.com/tronciu92)
